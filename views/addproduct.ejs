@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Product</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            dark: '#0f172a',
+            lightDark: '#1e293b',
+            accent: '#3b82f6'
+          },
+          backdropBlur: {
+            xs: '2px',
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen flex items-center justify-center font-sans text-white">
+
+  <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-10 rounded-2xl shadow-2xl w-full max-w-lg">
+
+    <h2 class="text-3xl font-semibold text-center mb-8 text-white">Add New Product</h2>
+
+    <form action="/addproduct" class="space-y-6" method="post">
+      
+  
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-200 mb-1">Product Name</label>
+        <input type="text" id="name" name="name" required
+          class="w-full px-4 py-2 bg-lightDark text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition">
+      </div>
+
+      
+      <div>
+        <label for="price" class="block text-sm font-medium text-gray-200 mb-1">Price ($)</label>
+        <input type="number" id="price" name="price" step="0.01" required
+          class="w-full px-4 py-2 bg-lightDark text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition">
+      </div>
+
+      
+  <div>
+  <label for="category" class="block text-sm font-medium text-gray-200 mb-1">Category</label>
+  <input type="text" id="category" name="category" required
+    class="w-full px-4 py-2 bg-lightDark text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+    placeholder="Enter category">
+</div>
+
+      
+      <div>
+        <label for="quantity" class="block text-sm font-medium text-gray-200 mb-1">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" required
+          class="w-full px-4 py-2 bg-lightDark text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition">
+      </div>
+
+      
+    
+
+  
+      <div>
+        <button type="submit"
+          class="w-full bg-accent hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-lg">
+          Add Product
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>

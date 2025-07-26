@@ -1,0 +1,34 @@
+router.post('/login', async (req, res) => {
+  const email = req.body.username;
+  const password = req.body.password;
+
+  const userdata = await usermodel.findOne({ email });
+  const admindata = await adminmodel.findOne({ email });
+
+  
+  if (admindata) {
+    if (email === admindata.email && password === admindata.password) {
+      console.log(admindata);
+      return res.redirect('/adminpanel');
+    }
+  }
+
+  
+  if (!userdata) {
+    return res.send('User not found');
+  }
+
+  
+  const passwordMatched = await bcrypt.compare(password, userdata.password);
+  if (!passwordMatched) {
+    return res.send('Password not matched');
+  }
+
+  
+  if (userdata.status === 'deactivate') {
+    return res.render('error'); // Render your error.ejs or error page
+  }
+
+  
+  return res.redirect('/userproduct');
+});
