@@ -4,8 +4,11 @@ import { usermodel } from '../models/user.js';
 
 
 const showUser = async (req, res) => {
+   
     let users = await usermodel.find()
     res.render('adminpanel', { users })
+   res.send('admin not logged')
+   
 }
 
 const addUser = async (req, res) => {
